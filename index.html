@@ -3,158 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ulrua. | static</title>
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="stylesheet" href="/css/index.css">
-   </head>
-<body>
-    <div class="tab-container">
-        <div class="new-tab">+ New Tab</div>
-        <span class="warning">Maximum of 7 tabs reached.</span>
-    </div>
-
-    <div class="no-tabs-message" id="noTabsMessage" style="display: none;">
-        No tabs are open. Click "+ New Tab" to open a new one.
-    </div>
-
-    <script>
-       const newTabBtn = document.querySelector('.new-tab');
-       const tabContainer = document.querySelector('.tab-container');
-       const warningMessage = document.querySelector('.warning');
-       const noTabsMessage = document.getElementById('noTabsMessage');
-       let tabCount = 0;
-       const maxTabs = 7;
-       let warningTimeout;
-
-       function activateTab(tab) {
-           document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
-           document.querySelectorAll('.iframe-container').forEach(iframe => iframe.classList.remove('active'));
-
-           tab.classList.add('active');
-           const iframeId = tab.getAttribute('data-iframe');
-           document.getElementById(iframeId).classList.add('active');
-       }
-
-       function updateNoTabsMessage() {
-           if (tabCount === 0) {
-               noTabsMessage.style.display = 'block';
-           } else {
-               noTabsMessage.style.display = 'none';
-           }
-       }
-
-       function updateTabTitle(iframe, tab) {
-            try {
-                const iframeDocument = iframe.contentDocument;
-                if (iframeDocument && iframeDocument.title) {
-                    let title = iframeDocument.title;
-                    const maxLength = 8;  
-
-                    if (title.length > maxLength) {
-                        title = title.substring(0, maxLength) + '...';
-                    }
-
-                    tab.querySelector('span').textContent = title;
-
-                    const iconLink = iframeDocument.querySelector("link[rel='icon']");
-                    if (iconLink) {
-                        tab.querySelector('img')?.setAttribute('src', iconLink.href);
-                    }
-                } else {
-                    window.addEventListener("message", (event) => {
-                        if (event.origin !== iframe.src) return;
-                        if (event.data && event.data.title) {
-                            let title = event.data.title;
-                            const maxLength = 8;  
-
-                            if (title.length > maxLength) {
-                                title = title.substring(0, maxLength) + '...';
-                            }
-
-                            tab.querySelector('span').textContent = title;
-                        }
-                    });
-                }
-            } catch (error) {
-                console.error("Error accessing iframe title:", error);
-            }
+    <title>Nginx Server Log</title>
+    <style>
+        body {
+            background-color: #2e3440;
+            color: #d8dee9;
+            font-family: "Courier New", Courier, monospace;
+            margin: 0;
+            padding: 20px;
         }
-
-       function createNewTab() {
-           if (tabCount >= maxTabs) {
-               warningMessage.style.display = 'inline';
-               clearTimeout(warningTimeout); 
-               warningTimeout = setTimeout(() => {
-                   warningMessage.style.display = 'none';
-               }, 5000);  
-               return;
-           }
-
-           const iframeId = `iframe${Date.now()}`;
-
-           const newTab = document.createElement('div');
-           newTab.classList.add('tab');
-           newTab.setAttribute('data-iframe', iframeId);
-           newTab.innerHTML = `
-               <img src="" alt="Tab Icon" style="width: 16px; height: 16px; margin-right: 8px;">
-               <span>New Tab</span>
-               <span class="close-btn">&times;</span>
-           `;
-           tabContainer.insertBefore(newTab, newTabBtn);
-
-           const newIframeContainer = document.createElement('div');
-           newIframeContainer.classList.add('iframe-container');
-           newIframeContainer.id = iframeId;
-           newIframeContainer.innerHTML = `<iframe src="/search.html" id="iframe" allowfullscreen></iframe>`;
-           document.body.appendChild(newIframeContainer);
-
-           const iframe = newIframeContainer.querySelector('iframe');
-           
-           iframe.addEventListener('load', function() {
-               updateTabTitle(iframe, newTab);
-           });
-
-           iframe.contentWindow.postMessage({ type: 'getTitle' }, '*');
-
-           setInterval(() => {
-               updateTabTitle(iframe, newTab);
-           }, 1000);
-
-           newTab.addEventListener('click', function () {
-               activateTab(this);
-           });
-
-           newTab.querySelector('.close-btn').addEventListener('click', (e) => {
-               e.stopPropagation();
-               const allTabs = document.querySelectorAll('.tab');
-               const index = Array.from(allTabs).indexOf(newTab); 
-
-               document.getElementById(iframeId).remove();
-               newTab.remove();
-               tabCount--;
-               warningMessage.style.display = 'none';
-               updateNoTabsMessage();
-
-               if (allTabs.length > 0) {
-                   if (index > 0) {
-                       activateTab(allTabs[index - 1]);
-                   } else if (index < allTabs.length) {
-                       activateTab(allTabs[index + 1]);
-                   }
-               }
-           });
-
-           activateTab(newTab);
-           tabCount++;
-           warningMessage.style.display = 'none';  
-           updateNoTabsMessage();
-       }
-
-       window.addEventListener('DOMContentLoaded', () => {
-           createNewTab();  
-       });
-
-       newTabBtn.addEventListener('click', createNewTab);
-    </script>
+        .log-box {
+            background-color: #3b4252;
+            border: 1px solid #4c566a;
+            border-radius: 5px;
+            padding: 20px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .error {
+            color: #bf616a;
+        }
+        .warning {
+            color: #ebcb8b;
+        }
+        .info {
+            color: #88c0d0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Nginx Server Log</h1>
+    <div class="log-box">
+        2024/11/20 12:43:12 [<span class="info">info</span>] 12345#0: Starting nginx/1.22.0<br>
+        2024/11/20 12:43:12 [<span class="info">info</span>] 12345#0: Listening on port 80, worker_processes auto<br>
+        2024/11/20 12:43:12 [<span class="info">info</span>] 12345#0: Using default configuration file: /etc/nginx/nginx.conf<br>
+        2024/11/20 12:43:13 [<span class="warning">warn</span>] 12345#0: Worker process 1 failed to respond to health check<br>
+        2024/11/20 12:43:15 [<span class="info">info</span>] 12345#0: Incoming connection from 192.168.0.12<br>
+        2024/11/20 12:43:16 [<span class="info">info</span>] 12345#0: Incoming connection from 192.168.0.13<br>
+        2024/11/20 12:43:20 [<span class="info">info</span>] 12345#0: Current active connections: 152<br>
+        2024/11/20 12:43:25 [<span class="info">info</span>] 12345#0: Current active connections: 347<br>
+        2024/11/20 12:43:30 [<span class="warning">warn</span>] 12345#0: Worker process 3 reported high CPU usage (92%)<br>
+        2024/11/20 12:43:35 [<span class="info">info</span>] 12345#0: Current active connections: 502<br>
+        2024/11/20 12:43:40 [<span class="error">error</span>] 12345#0: Failed to allocate memory for new connection (Out of memory)<br>
+        2024/11/20 12:43:45 [<span class="warning">warn</span>] 12345#0: Worker process 4 failed to respond in 10 seconds<br>
+        2024/11/20 12:43:50 [<span class="info">info</span>] 12345#0: Connection limit reached: 512<br>
+        2024/11/20 12:44:00 [<span class="error">crit</span>] 12345#0: Worker process 1 terminated unexpectedly (Signal 9)<br>
+        2024/11/20 12:44:05 [<span class="error">emerg</span>] 12345#0: All worker processes have failed<br>
+        2024/11/20 12:44:06 [<span class="info">info</span>] 12345#0: Restarting worker processes<br>
+        2024/11/20 12:44:08 [<span class="warning">warn</span>] 12345#0: System load average: 23.7, exceeding threshold<br>
+        2024/11/20 12:44:10 [<span class="error">crit</span>] 12345#0: Could not create new worker processes (Resource temporarily unavailable)<br>
+        2024/11/20 12:44:12 [<span class="error">crit</span>] 12345#0: System memory critically low<br>
+        2024/11/20 12:44:20 [<span class="error">emerg</span>] 12345#0: Server has crashed due to critical resource exhaustion<br>
+        2024/11/20 12:44:21 [<span class="info">info</span>] 12345#0: Core dump created at /var/dumps/nginx_core_12345.dmp<br>
+        2024/11/20 12:44:22 [<span class="info">info</span>] 12345#0: Attempting to restart service<br>
+        2024/11/20 12:44:24 [<span class="error">emerg</span>] 12345#0: Failed to restart service: insufficient system resources<br>
+        2024/11/20 12:44:25 [<span class="info">info</span>] 12345#0: Please resolve the above issues and restart manually<br>
+        <br>
+        --------------------------<br>
+        Nginx version: nginx/1.22.0<br>
+        Build: 2024-11-20<br>
+        Logs: /var/log/nginx/error.log<br>
+        --------------------------<br>
+    </div>
 </body>
 </html>
