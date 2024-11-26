@@ -1,0 +1,13 @@
+name: Deploy to Cloudflare Pages
+description: Deploy this repository to Cloudflare Pages.
+
+inputs:
+  project_name:
+    description: uuulrua
+    required: true
+  output_directory:
+    description: 
+    required: false
+
+on:
+  workflow_dispatch:
