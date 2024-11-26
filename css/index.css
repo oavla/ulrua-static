@@ -7,6 +7,8 @@
             color: #fff;
             overflow: hidden;
             height: 100%;
+            background-size: cover;
+            background-repeat: no-repeat;
         }
 
         .tab-container {
