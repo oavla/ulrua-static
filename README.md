@@ -38,7 +38,7 @@
 
 Yes now you can deploy Ulrua on a static host since this is the static version of Ulrua.
 
-[![Deploy to Cloudflare](https://img.shields.io/badge/Deploy%20to%20Cloudflare-Click%20Here-orange)](https://dash.cloudflare.com/sign-up/pages)
+[![Deploy to Cloudflare](https://img.shields.io/badge/Deploy%20to%20Cloudflare-Click%20Here-orange)](https://dash.cloudflare.com/sign-up/pages?url=https://github.com/oavla/oav)
 
 ---
 ---
