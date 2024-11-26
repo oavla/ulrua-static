@@ -240,26 +240,23 @@ body {
 }
 
 .footer {
-	background-color: #1414149f;
-	backdrop-filter: blur(6px);
-	box-shadow: 0 2px 4px rgba(255, 255, 255, 0.87);
 	font-weight: bold;
 	color: #fff;
-	text-align: center;
-	font-size: 16px;
+	font-size: 26px;
 	padding: 15px;
-	position: fixed;
-	bottom: 0;
+    position: fixed;
+    text-decoration: none;
+	top: 270px;
 	width: 100%;
+    text-align: center;
 	cursor: pointer;
 	z-index: -1;
 	border: none;
-	transition: background-color 1.3s, transform 0.7s;
 }
 
-.footer:hover {
-	background-color: #4c4c4ca8;
-	backdrop-filter: blur(3px);
+.footer a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
 }
 
 .loading-screen {
