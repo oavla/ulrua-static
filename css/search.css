@@ -185,7 +185,7 @@ body {
 	display: none;
 }
 
-.container {
+.container
 	float: right;
 	width: 100%;
 	max-width: 900px;
@@ -245,6 +245,7 @@ body {
 	font-size: 26px;
 	padding: 15px;
     position: fixed;
+	left: -14px;
     text-decoration: none;
 	top: 255px;
 	width: 100%;
