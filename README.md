@@ -34,6 +34,13 @@
 ---
 ---
 
+# Deploy this project:
+
+Yes now you can deploy Ulrua on a static host since this is the static version of Ulrua.
+
+---
+---
+
 ## Credits to Doge Unblocker for the backend 🙏
 
 ---
