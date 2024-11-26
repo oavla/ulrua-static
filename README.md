@@ -9,7 +9,7 @@
 <p align="center">
   <img src="https://img.shields.io/github/stars/oavla/ulrua-static?style=social" alt="Stars">
   <img src="https://img.shields.io/github/forks/oavla/ulrua-static?style=social" alt="Forks">
-  <img src="https://img.shields.io/github/issues/oavla/ulrya-static" alt="Issues">
+  <img src="https://img.shields.io/github/issues/oavla/ulrua-static" alt="Issues">
 </p>
 
 <p align="center">
