@@ -7,9 +7,9 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/github/stars/oavla/oav?style=social" alt="Stars">
-  <img src="https://img.shields.io/github/forks/oavla/oav?style=social" alt="Forks">
-  <img src="https://img.shields.io/github/issues/oavla/oav" alt="Issues">
+  <img src="https://img.shields.io/github/stars/oavla/ulrua-static?style=social" alt="Stars">
+  <img src="https://img.shields.io/github/forks/oavla/ulrua-static?style=social" alt="Forks">
+  <img src="https://img.shields.io/github/issues/oavla/ulrya-static" alt="Issues">
 </p>
 
 <p align="center">
@@ -38,7 +38,7 @@
 
 Yes now you can deploy Ulrua on a static host since this is the static version of Ulrua.
 
-[![Deploy to Cloudflare](https://img.shields.io/badge/Deploy%20to%20Cloudflare-Click%20Here-orange)](https://dash.cloudflare.com/sign-in/pages?url=https://github.com/oavla/oav)
+[![Deploy to Cloudflare](https://img.shields.io/badge/Deploy%20to%20Cloudflare-Click%20Here-orange)](https://dash.cloudflare.com/sign-in/pages?url=https://github.com/oavla/ulrua-static)
 
 ---
 ---
