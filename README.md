@@ -1,4 +1,43 @@
-Ulrua Static.
+<p align="center">
+  <img src="https://raw.githubusercontent.com/oavla/oav/refs/heads/main/banner.png" alt="banner">
+</p>
+
+<p align="center" style="font-weight: bold; color: purple;">
+  ^^
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/github/stars/oavla/oav?style=social" alt="Stars">
+  <img src="https://img.shields.io/github/forks/oavla/oav?style=social" alt="Forks">
+  <img src="https://img.shields.io/github/issues/oavla/oav" alt="Issues">
+</p>
+
+<p align="center">
+  Ulrua static version 😲
+</p>
 
 > [!IMPORTANT]
-> If you fork this project, consider giving it a star in the original repository!
+> Consider giving this repository a ⭐️ if you do fork and use Ulrua!
+
+---
+
+# Features:
+- Ads free!!
+- Sleek and modern UI
+- Fast
+- Search engines switcher
+- Easy to deploy 
+- Tabs system
+- Now.gg support
+- Dev Tools
+
+---
+---
+
+## Credits to Doge Unblocker for the backend 🙏
+
+---
+---
+
+> [!IMPORTANT]
+> Consider giving this repository a ⭐️ if you do fork and use Ulrua!
