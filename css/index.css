@@ -16,7 +16,7 @@
             flex-wrap: wrap;
             align-items: center;
             padding: 6px 5px;
-            background: #000000;
+            background: linear-gradient(to right, #0a0a12, #120b1e, #120a1d, #0f0b19);
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
             overflow: hidden;
         }
@@ -73,7 +73,7 @@
         }
 
         .new-tab {
-            padding: 10px 20px;
+            padding: 8px 10px;
             margin-left: auto;
             background: linear-gradient(135deg, #3b3b6a, #2c2c68);
             color: #aaa;
@@ -108,7 +108,7 @@
             height: calc(100vh - 56px);
             display: none;
             background-color: #000000;
-            border-top: 2px solid #100932;
+            border-top: 2px solid #130929;
         }
 
         .iframe-container.active {
