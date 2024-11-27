@@ -33,7 +33,7 @@ async function handleSearch(query) {
     frame.style.display = "block";
     dropdown.style.display = "none";
     searchIntro.style.display = "none";
-
+     
     frame.src = await getUrlWithDelay(searchURL);
 
     frame.onload = () => {
