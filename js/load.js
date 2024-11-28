@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function () {
     } else if (isDeleting && i > 0) {
       sloganElement.innerHTML = currentQuote.substring(0, i - 1);
       i--;
-      setTimeout(typeWriter, 15);
+      setTimeout(typeWriter, 30);
     } else if (!isDeleting && i === currentQuote.length) {
       setTimeout(() => {
         isDeleting = true;
