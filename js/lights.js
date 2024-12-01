@@ -6,7 +6,7 @@ container.style.transform = 'translateX(-50%)';
 container.style.zIndex = '10';
 document.body.appendChild(container);
 
-const ropeLength = 600;
+const ropeLength = window.innerWidth;
 const ropeHeight = 150;
 const numLights = 30;
 
@@ -16,11 +16,11 @@ canvas.height = ropeHeight + 50;
 canvas.style.position = 'absolute';
 canvas.style.left = '50%';
 canvas.style.transform = 'translateX(-50%)';
-canvas.style.zIndex = '5';  
+canvas.style.zIndex = '5';
 const ctx = canvas.getContext('2d');
 
 ctx.strokeStyle = '#8B4513';
-ctx.lineWidth = 4;
+ctx.lineWidth = 5.59;
 ctx.beginPath();
 
 const ropeYPositions = [];
@@ -39,22 +39,23 @@ ctx.stroke();
 container.appendChild(canvas);
 
 const colors = ['#e74c3c', '#2ecc71', '#3498db', '#f1c40f', '#9b59b6'];
+const lightOffset = -664; 
 
 for (let i = 0; i < numLights; i++) {
     const light = document.createElement('div');
     const socket = document.createElement('div');
     const color = colors[Math.floor(Math.random() * colors.length)];
 
-    const xPos = Math.floor((i / (numLights - 1)) * ropeLength);
-    const yPos = ropeYPositions[xPos];
+    const xPos = Math.floor((i / (numLights - 1)) * ropeLength) + lightOffset;
+    const yPos = ropeYPositions[xPos - lightOffset];
 
-    light.style.width = '15px';
+    light.style.width = '10px';
     light.style.height = '25px';
     light.style.borderRadius = '50% 50% 50% 50% / 60% 60% 40% 40%';
     light.style.backgroundColor = color;
     light.style.position = 'absolute';
-    light.style.left = `${xPos + -300}px`;
-    light.style.top = `${yPos + 3}px`;
+    light.style.left = `${xPos}px`;
+    light.style.top = `${yPos + 3.90}px`;
     light.style.boxShadow = '0 0 10px rgba(255, 255, 255, 0.5)';
     light.style.transform = 'translate(-50%, 0)';
     light.style.zIndex = '15';
