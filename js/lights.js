@@ -20,7 +20,7 @@ canvas.style.zIndex = '5';
 const ctx = canvas.getContext('2d');
 
 ctx.strokeStyle = '#8B4513';
-ctx.lineWidth = 5.59;
+ctx.lineWidth = 6.29;
 ctx.beginPath();
 
 const ropeYPositions = [];
@@ -46,7 +46,7 @@ for (let i = 0; i < numLights; i++) {
     const socket = document.createElement('div');
     const color = colors[Math.floor(Math.random() * colors.length)];
 
-    const xPos = Math.floor((i / (numLights - 1)) * ropeLength) + lightOffset;
+    const xPos = Math.floor((i / (numLights -1)) * ropeLength) + lightOffset;
     const yPos = ropeYPositions[xPos - lightOffset];
 
     light.style.width = '10px';
@@ -55,12 +55,13 @@ for (let i = 0; i < numLights; i++) {
     light.style.backgroundColor = color;
     light.style.position = 'absolute';
     light.style.left = `${xPos}px`;
-    light.style.top = `${yPos + 3.90}px`;
+    light.style.right = `${yPos}px`;
+    light.style.top = `${yPos + 4.90}px`;
     light.style.boxShadow = '0 0 10px rgba(255, 255, 255, 0.5)';
     light.style.transform = 'translate(-50%, 0)';
     light.style.zIndex = '15';
 
-    socket.style.width = '8px';
+    socket.style.width = '10px';
     socket.style.height = '5px';
     socket.style.backgroundColor = '#555';
     socket.style.borderRadius = '2px';
