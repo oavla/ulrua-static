@@ -43,7 +43,7 @@ Yes now you can deploy Ulrua on a static host since this is the static version o
 ---
 ---
 
-## Credits to Doge Unblocker for the backend 🙏
+## Credits to Arsenic for the backend 🙏
 
 ---
 ---
